@@ -1,0 +1,4 @@
+lebed_video:
+    resource: "@LebedVideoBundle/Resources/config/routing.yml"
+    prefix:   /
+

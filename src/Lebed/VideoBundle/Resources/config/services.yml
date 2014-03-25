@@ -1,0 +1,7 @@
+parameters:
+#    lebed_video.example.class: Lebed\VideoBundle\Example
+
+services:
+#    lebed_video.example:
+#        class: %lebed_video.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
