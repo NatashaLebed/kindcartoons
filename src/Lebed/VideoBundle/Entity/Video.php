@@ -96,7 +96,6 @@ class Video
 
     /**
      * @ORM\ManyToMany(targetEntity="Lebed\UserBundle\Entity\User", mappedBy="videos")
-     * @ORM\JoinTable(name="videos_users")
      */
     protected $users;
 
