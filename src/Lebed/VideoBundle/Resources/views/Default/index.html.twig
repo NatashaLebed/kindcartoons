@@ -5,6 +5,12 @@
         {% for video in videos %}
             {{ video.Title }} </br>
             {{ video.Link | raw}} </br>
+
+            {% if app.user %}
+
+                <p><a class="btn btn-info" href="{{ path('lebed_video_copyVideoToUser', {'user_id': app.user.id, 'video_id': video.Id}) }}" role="button">Add video + </a></p>
+
+            {% endif %}
         {% endfor %}
     {% endblock %}
 

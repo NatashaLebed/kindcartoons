@@ -4,4 +4,9 @@ lebed_video_homepage:
 lebed_video_videos_of_category:
     pattern: /category/{id}
     defaults: { _controller: LebedVideoBundle:Default:videosOfCategory}
-
+lebed_video_addVideo:
+    pattern: /addVideo
+    defaults: { _controller: LebedVideoBundle:Default:addVideo}
+lebed_video_copyVideoToUser:
+    pattern: /copyVideo/{user_id}/{video_id}
+    defaults: { _controller: LebedVideoBundle:Default:copyVideoToUser}

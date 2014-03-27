@@ -4,6 +4,7 @@ namespace Lebed\VideoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Lebed\UserBundle\Entity\User as User;
 
 /**
  * Class Video
@@ -45,19 +46,19 @@ class Video
      * @ORM\ManyToOne(targetEntity="Country", inversedBy="videos")
      * @ORM\JoinColumn(name="country_id", referencedColumnName="id")
      */
-    protected $country;
+    protected $country = NULL;
 
     /**
      * @ORM\ManyToOne(targetEntity="Language", inversedBy="videos")
      * @ORM\JoinColumn(name="language_id", referencedColumnName="id")
      */
-    protected $language;
+    protected $language = NULL;
 
     /**
      * @ORM\ManyToOne(targetEntity="Type", inversedBy="videos")
      * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
      */
-    protected $type;
+    protected $type = NULL;
 
     /**
      * @Gedmo\Slug(fields={"title"}, style="camel")
@@ -92,6 +93,12 @@ class Video
      * @ORM\Column(type = "integer")
      */
     protected $viewsNumber = 0;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Lebed\UserBundle\Entity\User", mappedBy="videos")
+     * @ORM\JoinTable(name="videos_users")
+     */
+    protected $users;
 
     /**
      * Get id
@@ -400,5 +407,45 @@ class Video
     public function getCategory()
     {
         return $this->category;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add users
+     *
+     * @param \Lebed\UserBundle\Entity\User $users
+     * @return Video
+     */
+    public function addUser(\Lebed\UserBundle\Entity\User $users)
+    {
+        $this->users[] = $users;
+    
+        return $this;
+    }
+
+    /**
+     * Remove users
+     *
+     * @param \Lebed\UserBundle\Entity\User $users
+     */
+    public function removeUser(\Lebed\UserBundle\Entity\User $users)
+    {
+        $this->users->removeElement($users);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }
