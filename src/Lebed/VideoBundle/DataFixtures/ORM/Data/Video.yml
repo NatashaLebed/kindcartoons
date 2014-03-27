@@ -1,0 +1,30 @@
+video1:
+    title:        Как японцы вассаби месят
+    category:     mathematics
+    description:  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in
+    author:       admin
+    year:         1993
+    type:         film
+    country:      russian
+    language:     ru
+    link:         <iframe width='420' height='315' src='//www.youtube.com/embed/jn--Dx9jiYA' frameborder='0' allowfullscreen></iframe>
+video2:
+    title:        Барбоскины
+    category:     mathematics
+    description:  48 Серия. Сама невинность (мультфильм)
+    author:       admin
+    year:         2009
+    type:         film
+    country:      soviet
+    language:     ua
+    link:         <iframe width='420' height='315' src='//www.youtube.com/embed/T4UdH0ObdCU' frameborder='0' allowfullscreen></iframe>
+video3:
+    title:        My Beautiful Woman
+    category:     languages
+    description:  My Beautiful Woman true story
+    author:       admin
+    year:         2009
+    type:         film
+    country:      foreign
+    language:     ru
+    link:         <iframe width='560' height='315' src='//www.youtube.com/embed/SZdeZNawppk' frameborder='0' allowfullscreen></iframe>

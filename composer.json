@@ -18,7 +18,18 @@
         "sensio/distribution-bundle": "2.3.*",
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+        "doctrine/migrations": "dev-master",
+        "doctrine/doctrine-migrations-bundle": "dev-master",
+        "stof/doctrine-extensions-bundle": "v1.1.0",
+        "twbs/bootstrap": "3.0.*@dev",
+        "components/jquery": "1.9.1",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "behat/behat": "2.4.*@stable"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*",
+        "doctrine/doctrine-fixtures-bundle": "2.2.*@dev"
     },
     "scripts": {
         "post-install-cmd": [
@@ -37,7 +48,7 @@
         ]
     },
     "config": {
-        "bin-dir": "bin"
+        "bin-dir": "bin/"
     },
     "minimum-stability": "stable",
     "extra": {
