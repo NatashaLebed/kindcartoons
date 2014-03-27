@@ -26,9 +26,38 @@ class Video
     protected $title;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="videos")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    protected $category;
+
+    /**
      * @ORM\Column(length=64)
      */
     protected $author;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $year;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Country", inversedBy="videos")
+     * @ORM\JoinColumn(name="country_id", referencedColumnName="id")
+     */
+    protected $country;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Language", inversedBy="videos")
+     * @ORM\JoinColumn(name="language_id", referencedColumnName="id")
+     */
+    protected $language;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Type", inversedBy="videos")
+     * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
+     */
+    protected $type;
 
     /**
      * @Gedmo\Slug(fields={"title"}, style="camel")
@@ -60,9 +89,9 @@ class Video
 
     /**
      * @var integer
-     * @ORM\Column(type = "integer" )
+     * @ORM\Column(type = "integer")
      */
-    protected $viewsNumber;
+    protected $viewsNumber = 0;
 
     /**
      * Get id
@@ -256,5 +285,120 @@ class Video
     public function getViewsNumber()
     {
         return $this->viewsNumber;
+    }
+
+    /**
+     * Set year
+     *
+     * @param integer $year
+     * @return Video
+     */
+    public function setYear($year)
+    {
+        $this->year = $year;
+    
+        return $this;
+    }
+
+    /**
+     * Get year
+     *
+     * @return integer 
+     */
+    public function getYear()
+    {
+        return $this->year;
+    }
+
+    /**
+     * Set country
+     *
+     * @param \Lebed\VideoBundle\Entity\Country $country
+     * @return Video
+     */
+    public function setCountry(\Lebed\VideoBundle\Entity\Country $country = null)
+    {
+        $this->country = $country;
+    
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return \Lebed\VideoBundle\Entity\Country 
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * Set language
+     *
+     * @param \Lebed\VideoBundle\Entity\Language $language
+     * @return Video
+     */
+    public function setLanguage(\Lebed\VideoBundle\Entity\Language $language = null)
+    {
+        $this->language = $language;
+    
+        return $this;
+    }
+
+    /**
+     * Get language
+     *
+     * @return \Lebed\VideoBundle\Entity\Language 
+     */
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+
+    /**
+     * Set type
+     *
+     * @param \Lebed\VideoBundle\Entity\Type $type
+     * @return Video
+     */
+    public function setType(\Lebed\VideoBundle\Entity\Type $type = null)
+    {
+        $this->type = $type;
+    
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return \Lebed\VideoBundle\Entity\Type 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \Lebed\VideoBundle\Entity\Category $category
+     * @return Video
+     */
+    public function setCategory(\Lebed\VideoBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+    
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Lebed\VideoBundle\Entity\Category 
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

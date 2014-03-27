@@ -1,0 +1,15 @@
+study:
+    title: Обучающие
+    description: Обучающие мультики
+mathematics:
+    title: Логика
+    description: Счет, фигуры, формы
+    parent: study
+languages:
+    title: Языки
+    description: Изучение языков. As many languages you know, as many times you are a man
+    parent: study
+world_around:
+    title: Окружающий мир
+    description: Круговорот воды в природе, почему светит солнце, почему дует ветер...
+    parent: study

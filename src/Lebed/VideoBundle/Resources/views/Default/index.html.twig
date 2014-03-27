@@ -1,1 +1,11 @@
-Hello {{ name }}!
+{% extends "LebedVideoBundle::layout.html.twig" %}
+
+    {% block title %} {{ parent() }} Blog {% endblock %}
+    {% block content %}
+        {% for video in videos %}
+            {{ video.Title }} </br>
+            {{ video.Link | raw}} </br>
+        {% endfor %}
+    {% endblock %}
+
+

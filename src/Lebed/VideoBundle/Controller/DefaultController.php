@@ -6,8 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    public function indexAction()
     {
-        return $this->render('LebedVideoBundle:Default:index.html.twig', array('name' => $name));
+        $videos = $this->getDoctrine()->getRepository('LebedVideoBundle:Video')->findAll();
+
+        return $this->render('LebedVideoBundle:Default:index.html.twig', array('videos' => $videos));
     }
 }

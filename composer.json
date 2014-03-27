@@ -21,7 +21,13 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "doctrine/migrations": "dev-master",
         "doctrine/doctrine-migrations-bundle": "dev-master",
-        "stof/doctrine-extensions-bundle": "v1.1.0"
+        "stof/doctrine-extensions-bundle": "v1.1.0",
+        "twbs/bootstrap": "3.0.*@dev",
+        "components/jquery": "1.9.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*",
+        "doctrine/doctrine-fixtures-bundle": "2.2.*@dev"
     },
     "scripts": {
         "post-install-cmd": [
