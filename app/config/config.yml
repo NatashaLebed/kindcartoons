@@ -106,3 +106,7 @@ stof_doctrine_extensions:
             timestampable: true
             sluggable: true
             tree:    true
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: Lebed\UserBundle\Entity\User
