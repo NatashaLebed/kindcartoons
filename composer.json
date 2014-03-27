@@ -25,7 +25,11 @@
         "twbs/bootstrap": "3.0.*@dev",
         "components/jquery": "1.9.1",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "behat/behat": "2.4.*@stable"
+        "behat/behat": "@dev",
+        "behat/symfony2-extension": "*",
+        "behat/mink-extension":          "*",
+        "behat/mink-browserkit-driver":  "*",
+        "behat/mink-selenium2-driver": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*",

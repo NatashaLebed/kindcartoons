@@ -1,0 +1,11 @@
+default:
+    extensions:
+        Behat\Symfony2Extension\Extension:
+            mink_driver: true
+        Behat\MinkExtension\Extension:
+            selenium2: ~
+            base_url: http://kindcartoons.local/
+            default_session: selenium2
+            browser_name: firefox
+
+
