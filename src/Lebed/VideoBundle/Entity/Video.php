@@ -99,6 +99,12 @@ class Video
      */
     protected $users;
 
+    /** @ORM\OneToMany(targetEntity="Image", mappedBy="video") */
+    protected $images;
+
+    /** @ORM\OneToMany(targetEntity="Rating", mappedBy="video") */
+    protected $ratings;
+
     /**
      * Get id
      *
@@ -446,5 +452,71 @@ class Video
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Add images
+     *
+     * @param \Lebed\VideoBundle\Entity\Image $images
+     * @return Video
+     */
+    public function addImage(\Lebed\VideoBundle\Entity\Image $images)
+    {
+        $this->images[] = $images;
+    
+        return $this;
+    }
+
+    /**
+     * Remove images
+     *
+     * @param \Lebed\VideoBundle\Entity\Image $images
+     */
+    public function removeImage(\Lebed\VideoBundle\Entity\Image $images)
+    {
+        $this->images->removeElement($images);
+    }
+
+    /**
+     * Get images
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * Add ratings
+     *
+     * @param \Lebed\VideoBundle\Entity\Rating $ratings
+     * @return Video
+     */
+    public function addRating(\Lebed\VideoBundle\Entity\Rating $ratings)
+    {
+        $this->ratings[] = $ratings;
+    
+        return $this;
+    }
+
+    /**
+     * Remove ratings
+     *
+     * @param \Lebed\VideoBundle\Entity\Rating $ratings
+     */
+    public function removeRating(\Lebed\VideoBundle\Entity\Rating $ratings)
+    {
+        $this->ratings->removeElement($ratings);
+    }
+
+    /**
+     * Get ratings
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRatings()
+    {
+        return $this->ratings;
     }
 }
