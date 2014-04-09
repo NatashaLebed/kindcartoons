@@ -34,10 +34,12 @@ class Image
     protected $thumblnail;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Video", inversedBy="images")
+     * @ORM\OneToOne(targetEntity="Video", inversedBy="image")
      */
     protected $video;
 
+
+   
 
     /**
      * Get id

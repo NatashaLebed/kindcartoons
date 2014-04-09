@@ -1,0 +1,12 @@
+{% extends "LebedVideoBundle::layout.html.twig" %}
+
+    {% block content %}
+        {{ video.Title }}
+        {{ video.Link | raw}} </br>
+        <span>Описание {{ video.Description }}</br></span>
+
+        {% if app.user %}
+            <p><a class="btn btn-info" href="{{ path('lebed_video_copyVideoToUser', {'user_id': app.user.id, 'video_id': video.Id}) }}" role="button">Add video + </a></p>
+        {% endif %}
+
+    {% endblock %}

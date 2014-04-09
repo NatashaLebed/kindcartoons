@@ -10,3 +10,6 @@ lebed_video_addVideo:
 lebed_video_copyVideoToUser:
     pattern: /copyVideo/{user_id}/{video_id}
     defaults: { _controller: LebedVideoBundle:Default:copyVideoToUser}
+lebed_video_showVideoPage:
+    pattern: /video/{slug}
+    defaults: { _controller: LebedVideoBundle:Default:showVideoPage }

@@ -6,6 +6,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Lebed\VideoBundle\Entity\Video;
+use Lebed\VideoBundle\Entity\Image;
 use Symfony\Component\Yaml\Yaml;
 
 class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
@@ -27,6 +28,7 @@ class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
             $video->setCountry($this->getReference($videoData['country']));
             $video->setLanguage($this->getReference($videoData['language']));
             $video->setDescription($videoData['description']);
+            $video->setImage($this->getReference($videoData['image']));
             $video->setLink($videoData['link']);
             $manager->persist($video);
         }
@@ -38,6 +40,6 @@ class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 5; // the order in which fixtures will be loaded
+        return 6; // the order in which fixtures will be loaded
     }
 }
