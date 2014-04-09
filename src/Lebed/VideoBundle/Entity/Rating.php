@@ -35,6 +35,11 @@ class Rating
     protected $user;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    protected $weight;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -88,5 +93,28 @@ class Rating
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set weight
+     *
+     * @param integer $weight
+     * @return Rating
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+    
+        return $this;
+    }
+
+    /**
+     * Get weight
+     *
+     * @return integer 
+     */
+    public function getWeight()
+    {
+        return $this->weight;
     }
 }

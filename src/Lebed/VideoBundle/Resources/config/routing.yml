@@ -13,3 +13,6 @@ lebed_video_copyVideoToUser:
 lebed_video_showVideoPage:
     pattern: /video/{slug}
     defaults: { _controller: LebedVideoBundle:Default:showVideoPage }
+lebed_video_voteVideo:
+    pattern: /voteVideo
+    defaults: { _controller: LebedVideoBundle:Default:voteVideo}

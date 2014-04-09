@@ -8,6 +8,7 @@
             {% if video.Image.Thumblnail is defined %}
                 <img src=" {{ video.Image.Thumblnail }} "> </br></br>
             {% endif %}
+            <div id="star_{{ video.Id() }}" class="star" data-video_id="{{ video.Id() }}" data-readonly="true" data-star="{{ video.getVideoRating() }}"></div>
 
             <a class="btn btn-info about"  href="{{ path('lebed_video_showVideoPage', {'slug': video.Slug}) }}" role="button">
                 Подробнее
@@ -20,5 +21,26 @@
             </br></br>
         {% endfor %}
     {% endblock %}
+
+{% block jsAfterBody %}
+
+    <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+    <script src="/bundles/lebedvideo/js/rating/jquery.raty.min.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+
+        jQuery(document).ready(function(){
+
+            jQuery('.star').each(function(){
+                jQuery(this).raty({
+                    path: 'bundles/lebedvideo/js/rating',
+                    score: jQuery(this).data('star'),
+                    readOnly: jQuery(this).data('readonly')
+                });
+            });
+        });
+    </script>
+{% endblock %}
 
 

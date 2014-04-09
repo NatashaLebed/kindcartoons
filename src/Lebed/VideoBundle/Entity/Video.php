@@ -512,4 +512,42 @@ class Video
     {
         return $this->ratings;
     }
+
+    /**
+     * @return float
+     */
+    public function getVideoRating()
+    {
+        $k = 0;
+        $sum = 0;
+        foreach($this->getRatings() as $rating)
+        {
+            $k++;
+            $sum += $rating->getWeight();
+
+        }
+
+        if($k>0){
+            return $sum/$k;
+        }
+        else{
+            return null;
+        }
+
+    }
+
+    /**
+     * @param $user
+     * @return bool
+     */
+    public function isVoting($user)
+    {
+        foreach($this->getRatings() as $rating){
+            if($rating->getUser()->getId() == $user->getId())
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
