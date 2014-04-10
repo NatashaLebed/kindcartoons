@@ -1,0 +1,25 @@
+.blog-sidebar
+{
+    padding-top: 30px;
+}
+
+.blog-main
+{
+    padding-top: 40px;
+}
+
+.blog-post-meta
+{
+    margin-bottom: 0px;
+    padding: 0px;
+    font-size: 14px;
+}
+
+.about
+{
+    float: left;
+}
+.clear
+{
+    clear: both;
+}
