@@ -16,7 +16,7 @@
 
             {#{{ video.Link | raw}} </br>#}
             {% if app.user %}
-                <p><a class="btn btn-info clear" href="{{ path('lebed_video_copyVideoToUser', {'user_id': app.user.id, 'video_id': video.Id}) }}" role="button">Add video + </a></p>
+                <p><a class="btn btn-info clear" {% if app.user.videoIsAdded(video.Id()) %}disabled="disabled"{% endif %} href="{{ path('lebed_video_copyVideoToUser', {'user_id': app.user.id, 'video_id': video.Id}) }}" role="button">Add video + </a></p>
             {% endif %}
             </br></br>
         {% endfor %}
@@ -34,7 +34,7 @@
 
             jQuery('.star').each(function(){
                 jQuery(this).raty({
-                    path: 'bundles/lebedvideo/js/rating',
+                    path: '/bundles/lebedvideo/js/rating',
                     score: jQuery(this).data('star'),
                     readOnly: jQuery(this).data('readonly')
                 });

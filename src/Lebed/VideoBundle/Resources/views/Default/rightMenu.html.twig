@@ -1,0 +1,29 @@
+    <ul class="list-unstyled" >
+        <li>Страна</li>
+        <ul class="list-unstyled" style="padding-left: 40px;">
+            {% for country in countries %}
+                <li>
+                    <a href="{{ path('lebed_video_country', {'id': country.Id }) }}">{{ country.Name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <li>Язык</li>
+        <ul class="list-unstyled" style="padding-left: 40px;">
+            {% for language in languages %}
+                <li>
+                    <a href="{{ path('lebed_video_language', {'id': language.Id }) }}">{{ language.Name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <li>Тип</li>
+        <ul class="list-unstyled" style="padding-left: 40px;">
+            {% for type in types %}
+                <li>
+                    <a href="{{ path('lebed_video_type', {'id': type.Id }) }}">{{ type.Name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </ul>
+
+
+    {#<p><a href="{{ path('lebed_video_viewVideos', {'id': country.Id }) }}">{{ country.Name }}</a></p>#}
