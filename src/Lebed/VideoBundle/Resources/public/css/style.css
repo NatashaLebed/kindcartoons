@@ -14,3 +14,12 @@
     padding: 0px;
     font-size: 14px;
 }
+
+.about
+{
+    float: left;
+}
+.clear
+{
+    clear: both;
+}

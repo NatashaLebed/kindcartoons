@@ -99,6 +99,22 @@ class Video
      */
     protected $users;
 
+    /** @ORM\OneToOne(targetEntity="Image", mappedBy="video") */
+    protected $image;
+
+    /** @ORM\OneToMany(targetEntity="Rating", mappedBy="video") */
+    protected $ratings;
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->ratings = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -153,6 +169,29 @@ class Video
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * Set year
+     *
+     * @param integer $year
+     * @return Video
+     */
+    public function setYear($year)
+    {
+        $this->year = $year;
+    
+        return $this;
+    }
+
+    /**
+     * Get year
+     *
+     * @return integer 
+     */
+    public function getYear()
+    {
+        return $this->year;
     }
 
     /**
@@ -294,26 +333,26 @@ class Video
     }
 
     /**
-     * Set year
+     * Set category
      *
-     * @param integer $year
+     * @param \Lebed\VideoBundle\Entity\Category $category
      * @return Video
      */
-    public function setYear($year)
+    public function setCategory(\Lebed\VideoBundle\Entity\Category $category = null)
     {
-        $this->year = $year;
+        $this->category = $category;
     
         return $this;
     }
 
     /**
-     * Get year
+     * Get category
      *
-     * @return integer 
+     * @return \Lebed\VideoBundle\Entity\Category 
      */
-    public function getYear()
+    public function getCategory()
     {
-        return $this->year;
+        return $this->category;
     }
 
     /**
@@ -386,36 +425,6 @@ class Video
     }
 
     /**
-     * Set category
-     *
-     * @param \Lebed\VideoBundle\Entity\Category $category
-     * @return Video
-     */
-    public function setCategory(\Lebed\VideoBundle\Entity\Category $category = null)
-    {
-        $this->category = $category;
-    
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return \Lebed\VideoBundle\Entity\Category 
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /**
      * Add users
      *
      * @param \Lebed\UserBundle\Entity\User $users
@@ -446,5 +455,99 @@ class Video
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \Lebed\VideoBundle\Entity\Image $image
+     * @return Video
+     */
+    public function setImage(\Lebed\VideoBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+    
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \Lebed\VideoBundle\Entity\Image 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Add ratings
+     *
+     * @param \Lebed\VideoBundle\Entity\Rating $ratings
+     * @return Video
+     */
+    public function addRating(\Lebed\VideoBundle\Entity\Rating $ratings)
+    {
+        $this->ratings[] = $ratings;
+    
+        return $this;
+    }
+
+    /**
+     * Remove ratings
+     *
+     * @param \Lebed\VideoBundle\Entity\Rating $ratings
+     */
+    public function removeRating(\Lebed\VideoBundle\Entity\Rating $ratings)
+    {
+        $this->ratings->removeElement($ratings);
+    }
+
+    /**
+     * Get ratings
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRatings()
+    {
+        return $this->ratings;
+    }
+
+    /**
+     * @return float
+     */
+    public function getVideoRating()
+    {
+        $k = 0;
+        $sum = 0;
+        foreach($this->getRatings() as $rating)
+        {
+            $k++;
+            $sum += $rating->getWeight();
+
+        }
+
+        if($k>0){
+            return $sum/$k;
+        }
+        else{
+            return null;
+        }
+
+    }
+
+    /**
+     * @param $user
+     * @return bool
+     */
+    public function isVoting($user)
+    {
+        foreach($this->getRatings() as $rating){
+            if($rating->getUser()->getId() == $user->getId())
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
