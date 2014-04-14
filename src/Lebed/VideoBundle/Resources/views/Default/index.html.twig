@@ -3,11 +3,13 @@
     {% block title %} {{ parent() }} Blog {% endblock %}
     {% block content %}
         {% for video in videos %}
+            <div class="col-6 col-sm-6 col-lg-6">
             <span class="clear">{{ video.Title }} </span></br>
 
             {% if video.Image.Thumblnail is defined %}
                 <img src=" {{ video.Image.Thumblnail }} "> </br></br>
             {% endif %}
+
             <div id="star_{{ video.Id() }}" class="star" data-video_id="{{ video.Id() }}" data-readonly="true" data-star="{{ video.getVideoRating() }}"></div>
 
             <a class="btn btn-info about"  href="{{ path('lebed_video_showVideoPage', {'slug': video.Slug}) }}" role="button">
@@ -16,9 +18,10 @@
 
             {#{{ video.Link | raw}} </br>#}
             {% if app.user %}
-                <p><a class="btn btn-info clear" href="{{ path('lebed_video_copyVideoToUser', {'user_id': app.user.id, 'video_id': video.Id}) }}" role="button">Add video + </a></p>
+                <p><a class="btn btn-info clear" {% if app.user.videoIsAdded(video.Id()) %}disabled="disabled"{% endif %} href="{{ path('lebed_video_copyVideoToUser', {'user_id': app.user.id, 'video_id': video.Id}) }}" role="button">Add video + </a></p>
             {% endif %}
             </br></br>
+            </div>
         {% endfor %}
     {% endblock %}
 
@@ -34,7 +37,7 @@
 
             jQuery('.star').each(function(){
                 jQuery(this).raty({
-                    path: 'bundles/lebedvideo/js/rating',
+                    path: '/bundles/lebedvideo/js/rating',
                     score: jQuery(this).data('star'),
                     readOnly: jQuery(this).data('readonly')
                 });

@@ -7,12 +7,15 @@
         <span>Описание {{ video.Description }}</br></span>
 
         {% if app.user %}
-            <p><a class="btn btn-info" href="{{ path('lebed_video_copyVideoToUser', {'user_id': app.user.id, 'video_id': video.Id}) }}" role="button">Add video + </a></p>
+            <p><a class="btn btn-info" {% if app.user.videoIsAdded(video.Id()) %}disabled="disabled"{% endif %} href="{{ path('lebed_video_copyVideoToUser', {'user_id': app.user.id, 'video_id': video.Id}) }}" role="button">Add video + </a></p>
         {% endif %}
+
+        <input type="button" onclick="show_alert()" name="Alert" value="Show alert">
 
     {% endblock %}
 
 {% block jsAfterBody %}
+
 
     <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
     <script src="/bundles/lebedvideo/js/rating/jquery.raty.min.js" type="text/javascript"></script>

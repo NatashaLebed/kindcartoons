@@ -16,3 +16,12 @@ lebed_video_showVideoPage:
 lebed_video_voteVideo:
     pattern: /voteVideo
     defaults: { _controller: LebedVideoBundle:Default:voteVideo}
+lebed_video_country:
+    pattern: /country/{id}
+    defaults: { _controller: LebedVideoBundle:Default:videosOfCountry}
+lebed_video_language:
+    pattern: /language/{id}
+    defaults: { _controller: LebedVideoBundle:Default:videosOnLanguage}
+lebed_video_type:
+    pattern: /type/{id}
+    defaults: { _controller: LebedVideoBundle:Default:videosOfType}

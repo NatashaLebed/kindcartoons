@@ -71,4 +71,20 @@ class User extends BaseUser
     {
         return $this->videos;
     }
+
+    /**
+     * @param $video_id
+     * @return bool
+     */
+    public function videoIsAdded($video_id)
+    {
+        foreach($this->getVideos() as $video){
+            if($video->getId() == $video_id){
+
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

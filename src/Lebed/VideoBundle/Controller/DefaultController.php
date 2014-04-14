@@ -5,10 +5,12 @@ namespace Lebed\VideoBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Lebed\VideoBundle\Entity\Language;
 use Lebed\VideoBundle\Entity\Video;
 use Lebed\VideoBundle\Entity\Image;
 use Lebed\VideoBundle\Entity\Rating;
-use Lebed\UserBundle\Entity\User;
+use Lebed\UserBundle\Entity\Country;
+use Lebed\UserBundle\Entity\Type;
 use Lebed\VideoBundle\Form\Type\VideoType;
 
 class DefaultController extends Controller
@@ -32,6 +34,43 @@ class DefaultController extends Controller
         $htmlTree = $repo->childrenHierarchy(null, false,  $options);
 
         return new Response($htmlTree);
+    }
+
+    public function rightMenuAction()
+    {
+        $countries = $this->getDoctrine()->getRepository('LebedVideoBundle:Country')->findAll();
+        $languages = $this->getDoctrine()->getRepository('LebedVideoBundle:Language')->findAll();
+        $types = $this->getDoctrine()->getRepository('LebedVideoBundle:Type')->findAll();
+        return $this->render('LebedVideoBundle:Default:rightMenu.html.twig',
+            array('countries' => $countries,
+                  'languages' => $languages,
+                  'types' => $types,
+            ));
+
+    }
+
+    public function videosOfCountryAction($id)
+    {
+        $country = $this->getDoctrine()->getRepository('LebedVideoBundle:Country')->find($id);
+        $videos = $this->getDoctrine()->getRepository('LebedVideoBundle:Video')->findByCountry($country);
+
+        return $this->render('LebedVideoBundle:Default:index.html.twig', array('videos' => $videos));
+    }
+
+    public function videosOnLanguageAction($id)
+    {
+        $language = $this->getDoctrine()->getRepository('LebedVideoBundle:Language')->find($id);
+        $videos = $this->getDoctrine()->getRepository('LebedVideoBundle:Video')->findByLanguage($language);
+
+        return $this->render('LebedVideoBundle:Default:index.html.twig', array('videos' => $videos));
+    }
+
+    public function videosOfTypeAction($id)
+    {
+        $type = $this->getDoctrine()->getRepository('LebedVideoBundle:Type')->find($id);
+        $videos = $this->getDoctrine()->getRepository('LebedVideoBundle:Video')->findByType($type);
+
+        return $this->render('LebedVideoBundle:Default:index.html.twig', array('videos' => $videos));
     }
 
     public function videosOfCategoryAction($id)
