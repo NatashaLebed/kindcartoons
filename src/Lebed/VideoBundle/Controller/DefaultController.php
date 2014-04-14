@@ -101,7 +101,7 @@ class DefaultController extends Controller
             $json = json_decode(file_get_contents("http://gdata.youtube.com/feeds/api/videos/".$parsed_query['v'] ."?v=2&alt=jsonc"));
             $image = new Image();
             $image->setTitle($video->getTitle());
-            $image->setThumblnail($json->data->thumbnail->hqDefault);
+            $image->setThumblnail($json->data->thumbnail->sqDefault);
             $image->setSrc($json->data->thumbnail->hqDefault);
             $image->setVideo($video);
            // echo '<img src="' . $json->data->thumbnail->sqDefault . '">';
