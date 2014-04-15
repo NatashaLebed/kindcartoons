@@ -24,3 +24,26 @@
 {
     clear: both;
 }
+.title
+{
+    font-size: 14px;
+    height: 20px;
+    display: block;
+    font-weight: bold;
+    padding-bottom: 30px;
+}
+.Image_Thumblnail
+{
+    border: 3px dashed #555;
+}
+
+input, select
+{
+    margin-bottom: 10px;
+}
+
+.remove_button
+{
+    background-color: rgba(192, 100, 100, 1);
+    border-color: darkred ;
+}

@@ -120,7 +120,7 @@ class DefaultController extends Controller
             ));
     }
 
-    public  function copyVideoToUserAction($user_id, $video_id)
+    public  function copyVideoToUserAction($video_id)
     {
         $user = $this->getUser();
 
@@ -128,6 +128,21 @@ class DefaultController extends Controller
             ->find($video_id);
 
         $user->addVideo($video);
+
+        $this->getDoctrine()->getManager()->persist($user);
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirect($this->generateUrl('lebed_video_homepage'));
+    }
+
+    public  function removeVideoFromUserAction($video_id)
+    {
+        $user = $this->getUser();
+
+        $video = $this->getDoctrine()->getRepository('LebedVideoBundle:Video')
+            ->find($video_id);
+
+        $user->removeVideo($video);
 
         $this->getDoctrine()->getManager()->persist($user);
         $this->getDoctrine()->getManager()->flush();

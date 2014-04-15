@@ -1,27 +1,39 @@
 lebed_video_homepage:
     pattern:  /
     defaults: { _controller: LebedVideoBundle:Default:index }
+
 lebed_video_videos_of_category:
     pattern: /category/{id}
     defaults: { _controller: LebedVideoBundle:Default:videosOfCategory}
+
 lebed_video_addVideo:
     pattern: /addVideo
     defaults: { _controller: LebedVideoBundle:Default:addVideo}
+
 lebed_video_copyVideoToUser:
     pattern: /copyVideo/{user_id}/{video_id}
     defaults: { _controller: LebedVideoBundle:Default:copyVideoToUser}
+
+lebed_video_removeVideoFromUser:
+    pattern: /removeVideo/{user_id}/{video_id}
+    defaults: { _controller: LebedVideoBundle:Default:removeVideoFromUser}
+
 lebed_video_showVideoPage:
     pattern: /video/{slug}
     defaults: { _controller: LebedVideoBundle:Default:showVideoPage }
+
 lebed_video_voteVideo:
     pattern: /voteVideo
     defaults: { _controller: LebedVideoBundle:Default:voteVideo}
+
 lebed_video_country:
     pattern: /country/{id}
     defaults: { _controller: LebedVideoBundle:Default:videosOfCountry}
+
 lebed_video_language:
     pattern: /language/{id}
     defaults: { _controller: LebedVideoBundle:Default:videosOnLanguage}
+
 lebed_video_type:
     pattern: /type/{id}
     defaults: { _controller: LebedVideoBundle:Default:videosOfType}
