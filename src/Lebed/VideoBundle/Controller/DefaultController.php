@@ -9,8 +9,8 @@ use Lebed\VideoBundle\Entity\Language;
 use Lebed\VideoBundle\Entity\Video;
 use Lebed\VideoBundle\Entity\Image;
 use Lebed\VideoBundle\Entity\Rating;
-use Lebed\UserBundle\Entity\Country;
-use Lebed\UserBundle\Entity\Type;
+use Lebed\VideoBundle\Entity\Country;
+use Lebed\VideoBundle\Entity\Type;
 use Lebed\VideoBundle\Form\Type\VideoType;
 
 class DefaultController extends Controller
@@ -115,7 +115,7 @@ class DefaultController extends Controller
         }
 
         return $this->render('LebedVideoBundle:Default:addVideo.html.twig',
-            array('messages' => $video,
+            array('video' => $video,
                   'form' => $form->createView(),
             ));
     }
