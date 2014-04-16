@@ -9,18 +9,10 @@
         <link rel="stylesheet" type="text/css" charset="UTF-8" href="/js/fancybox/jquery.fancybox.css"/>
     {% endblock %}
 
-    {% block jsHead %}
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-        <script type="text/javascript" src="{{ asset('js/bootstrap.ie9.js') }}"></script>
-        <![endif]-->
-    {% endblock %}
-
     {% block body %}
 
         {% block menu %}
             {% include 'LebedVideoBundle::menu.html.twig' %}
-            <div id="time_child"></div>
         {% endblock %}
 
         <div class="container">
@@ -33,11 +25,7 @@
 
                 {% block rightsidebar %}
                     {% include 'LebedVideoBundle::rightsidebar.html.twig' %}
-                    {% if app.session.get('child') %}
-                        <p><a id="not_child_mode" class="btn btn-info" href="#" role="button">Not Child</a></p>
-                    {% else %}
-                        <p><a id="child_mode" class="btn btn-info" href="#" role="button">Child</a></p>
-                    {% endif %}
+
                 {% endblock %}
 
             </div><!-- /.row -->
@@ -46,11 +34,10 @@
 
             <div style="display: none">
                 <div id="popup">
-                    You time is left!!!
-
+                    You time is left!!!</br>
                     Input you password:
                     <form id="profile_form" action="{{ url("lebed_child_check_pass") }}" method="post">
-                        <input type="password" name="user_password" value=" " />
+                        <input type="password" name="user_password" value="" />
                         <button type="submit" value="submit">Send</button>
                     </form>
                 </div>
@@ -81,7 +68,7 @@
                         {
                             noty({
                                 text: data.content,
-                                timeout: 1000,
+                                timeout: 900,
                                 layout: 'top',
                                 type: 'success'
                             });
@@ -105,7 +92,7 @@
                         {
                             noty({
                                 text: data.content,
-                                timeout: 1000,
+                                timeout: 900,
                                 layout: 'top',
                                 type: 'success'
                             });
