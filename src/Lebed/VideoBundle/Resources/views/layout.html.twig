@@ -61,7 +61,7 @@
                 jQuery.ajax({
                     type: "POST",
                     url:  '{{ url('lebed_child') }}',
-                    data: {time: 1, time_setup: new Date()},
+                    data: {time_setup: new Date()},
                     success:function(data)
                     {
                         if (data.status == "Success")
@@ -109,18 +109,27 @@
 
             jQuery(document).ready(function(){
 
+                function secondsTimeSpanToHMS(s) {
+                    var h = Math.floor(s/3600); //Get whole hours
+                    s -= h*3600;
+                    var m = Math.floor(s/60); //Get remaining minutes
+                    s -= m*60;
+                    return h+":"+(m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s); //zero padding on minutes and seconds
+                }
+
                 {% if app.session.get('child') and app.session.get('time') %}
-                var timer = {{ app.session.get('time') }};
+                var time =  new Date({{ app.session.get('time') *1000 }});
+
                 var time_setup = new Date('{{ app.session.get('time_setup') }}');
 
-                var expiry = new Date(time_setup.setMinutes(time_setup.getMinutes() + timer));
+                var expiry = new Date(time_setup.setMinutes(time_setup.getMinutes() + time.getMinutes()));
                 var current = new Date();
 
                 var timetogo = (expiry-current)*0.001;
                 var timer = window.setInterval(function()
                 {
                     var str = timetogo;
-                    jQuery('#time_child').text(str);
+                    jQuery('#time_child').text(secondsTimeSpanToHMS(Math.round(str)));
 
 
                     if (timetogo <= 0)

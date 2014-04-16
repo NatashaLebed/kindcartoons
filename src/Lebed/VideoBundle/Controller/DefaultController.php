@@ -204,7 +204,8 @@ class DefaultController extends Controller
         if ($this->getRequest()->isXmlHttpRequest())
         {
             $this->get('session')->set('child', true);
-            $this->get('session')->set('time', $this->getRequest()->get('time'));
+
+            $this->get('session')->set('time',date_timestamp_get($this->getUser()->getTimeLimit()));
             $this->get('session')->set('time_setup', $this->getRequest()->get('time_setup'));
             $res = array(
                 'status' => 'Success',
