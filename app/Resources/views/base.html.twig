@@ -6,6 +6,12 @@
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     {% block jsHead %}{% endblock %}
+    <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
+
+    <script type="text/javascript" src="/js/noty/jquery.noty.js"></script>
+    <script type="text/javascript" src="/js/noty/layouts/top.js"></script>
+    <script type="text/javascript" src="/js/noty/themes/default.js"></script>
 </head>
 <body>
 {% block body %}
