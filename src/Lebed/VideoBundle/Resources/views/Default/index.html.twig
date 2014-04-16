@@ -4,27 +4,35 @@
     {% block content %}
         {% for video in videos %}
             <div class="col-6 col-sm-6 col-lg-6">
-            <span class="clear title">{{ video.Title }} </span></br>
+                {#Tittle#}
+                <a href="{{ path('lebed_video_showVideoPage', {'slug': video.Slug}) }}">
+                    <span class="clear title">{{ video.Title }} </span>
+                </a></br>
 
-            {% if video.Image.Thumblnail is defined %}
-                <img class="Image_Thumblnail" src=" {{ video.Image.Thumblnail }}" width="240" height="140" > </br>
-            {% endif %}
-
-            <div id="star_{{ video.Id() }}" class="star" data-video_id="{{ video.Id() }}" data-readonly="true" data-star="{{ video.getVideoRating() }}"></div><br>
-
-            <a class="btn btn-info about"  href="{{ path('lebed_video_showVideoPage', {'slug': video.Slug}) }}" role="button">
-                Подробнее
-            </a>
-
-            {% if app.user %}
-                {% if app.user.videoIsAdded(video.Id()) %}
-                    <a class="btn btn-danger clear " href="{{ path('lebed_video_removeVideoFromUser', {'user_id': app.user.id, 'video_id': video.Id}) }}" role="button">Remove video - </a>
-                {% else %}
-                    <a class="btn btn-info clear" href="{{ path('lebed_video_copyVideoToUser', {'user_id': app.user.id, 'video_id': video.Id}) }}" role="button">Add video + </a>
+                {#Image#}
+                {% if video.Image.Thumblnail is defined %}
+                    <a href="{{ path('lebed_video_showVideoPage', {'slug': video.Slug}) }}">
+                        <img class="Image_Thumblnail" src=" {{ video.Image.Thumblnail }}" width="240" height="140" >
+                    </a></br>
                 {% endif %}
-            {% endif %}
 
-            </br></br>
+                {#Rating#}
+                <div id="star_{{ video.Id() }}" class="star" data-video_id="{{ video.Id() }}" data-readonly="true" data-star="{{ video.getVideoRating() }}"></div><br>
+
+                {#Show#}
+                <a class="btn btn-info about"  href="{{ path('lebed_video_showVideoPage', {'slug': video.Slug}) }}" role="button">
+                   Подробнее
+                </a>
+
+                {#Add OR Remove video#}
+                {% if app.user %}
+                    {% if app.user.videoIsAdded(video.Id()) %}
+                        <a class="btn btn-danger clear " href="{{ path('lebed_video_removeVideoFromUser', {'user_id': app.user.id, 'video_id': video.Id}) }}" role="button">Remove video - </a>
+                    {% else %}
+                        <a class="btn btn-info clear" href="{{ path('lebed_video_copyVideoToUser', {'user_id': app.user.id, 'video_id': video.Id}) }}" role="button">Add video + </a>
+                    {% endif %}
+                {% endif %} </br></br>
+
             </div>
         {% endfor %}
     {% endblock %}
