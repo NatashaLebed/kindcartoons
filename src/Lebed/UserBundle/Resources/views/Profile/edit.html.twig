@@ -1,0 +1,31 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    <div>
+        {{ form_label(form.first_name) }} <br>
+        {{ form_widget(form.first_name) }}
+    </div>
+    <div>
+        {{ form_label(form.last_name) }} <br>
+        {{ form_widget(form.last_name) }}
+    </div>
+    <div>
+        {{ form_label(form.gender) }} <br>
+        {{ form_widget(form.gender) }}
+    </div>
+    <div>
+        {{ form_label(form.birth_day) }} <br>
+        {{ form_widget(form.birth_day) }}
+    </div>
+    <div style="padding-bottom: 20px;">
+        {{ form_label(form.time_limit) }} <br>
+        {{ form_widget(form.time_limit) }}
+    </div>
+    {{ form_end(form) }}
+
+    </br>
+    <a class="btn-small"  href="{{ path('fos_user_change_password') }}" role="button">Change password</a>
+
+{% endblock fos_user_content %}
