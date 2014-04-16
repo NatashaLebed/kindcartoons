@@ -10,11 +10,7 @@
             <p><a class="btn btn-info" {% if app.user.videoIsAdded(video.Id()) %}disabled="disabled"{% endif %} href="{{ path('lebed_video_copyVideoToUser', {'user_id': app.user.id, 'video_id': video.Id}) }}" role="button">Add video + </a></p>
         {% endif %}
 
-        {% if app.session.get('child') %}
-            <p><a id="not_child_mode" class="btn btn-info" href="#" role="button">Not Child</a></p>
-        {% else %}
-            <p><a id="child_mode" class="btn btn-info" href="#" role="button">Child</a></p>
-        {% endif %}
+
 
     {% endblock %}
 
@@ -64,54 +60,7 @@
                 });
             }
 
-            /*child mode*/
-            jQuery("#child_mode").on('click', function(){
-                jQuery.ajax({
-                    type: "POST",
-                    url:  '{{ url('lebed_child') }}',
-                    data: {time: 1, time_setup: new Date()},
-                    success:function(data)
-                    {
-                        if (data.status == "Success")
-                        {
-                            noty({
-                                text: data.content,
-                                timeout: 1000,
-                                layout: 'top',
-                                type: 'success'
-                            });
 
-                            location.reload()
-                        }
-                    },
-                    dataType:"JSON"
-                })
-            })
-            /*end*/
-
-            /*child mode off*/
-            jQuery("#not_child_mode").on('click', function(){
-                jQuery.ajax({
-                    type: "POST",
-                    url:  '{{ url('lebed_child_off') }}',
-                    success:function(data)
-                    {
-                        if (data.status == "Success")
-                        {
-                            noty({
-                                text: data.content,
-                                timeout: 1000,
-                                layout: 'top',
-                                type: 'success'
-                            });
-
-                            location.reload()
-                        }
-                    },
-                    dataType:"JSON"
-                })
-            })
-            /*end*/
         });
     </script>
 {% endblock %}
