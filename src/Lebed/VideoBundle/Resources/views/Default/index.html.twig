@@ -18,7 +18,7 @@
 
             {% if app.user %}
                 {% if app.user.videoIsAdded(video.Id()) %}
-                    <a class="btn btn-info clear remove_button" href="{{ path('lebed_video_removeVideoFromUser', {'user_id': app.user.id, 'video_id': video.Id}) }}" role="button">Remove video - </a>
+                    <a class="btn btn-danger clear " href="{{ path('lebed_video_removeVideoFromUser', {'user_id': app.user.id, 'video_id': video.Id}) }}" role="button">Remove video - </a>
                 {% else %}
                     <a class="btn btn-info clear" href="{{ path('lebed_video_copyVideoToUser', {'user_id': app.user.id, 'video_id': video.Id}) }}" role="button">Add video + </a>
                 {% endif %}
