@@ -29,7 +29,11 @@
         "behat/symfony2-extension": "*",
         "behat/mink-extension":          "*",
         "behat/mink-browserkit-driver":  "*",
-        "behat/mink-selenium2-driver": "dev-master"
+        "behat/mink-selenium2-driver": "dev-master",
+        "friendsofsymfony/rest-bundle": "1.3.*",
+        "jms/serializer-bundle":          "0.12.*",
+        "nelmio/api-doc-bundle": "2.5.*@dev"
+
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*",

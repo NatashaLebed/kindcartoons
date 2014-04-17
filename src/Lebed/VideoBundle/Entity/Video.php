@@ -5,12 +5,16 @@ namespace Lebed\VideoBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Lebed\UserBundle\Entity\User as User;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * Class Video
  * @package Lebed\VideoBundle\Entity
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Lebed\VideoBundle\Entity\VideoRepository")
  * @ORM\Table(name="video")
+ * @ExclusionPolicy("all")
+ *
  */
 class Video
 {
@@ -23,6 +27,7 @@ class Video
 
     /**
      * @ORM\Column(length=64)
+     * @Expose
      */
     protected $title;
 
