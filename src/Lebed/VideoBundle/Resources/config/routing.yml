@@ -37,3 +37,13 @@ lebed_video_language:
 lebed_video_type:
     pattern: /type/{id}
     defaults: { _controller: LebedVideoBundle:Default:videosOfType}
+
+lebed_child:
+    pattern: /child
+    defaults: { _controller: LebedVideoBundle:Default:child}
+lebed_child_off:
+    pattern: /child_off
+    defaults: { _controller: LebedVideoBundle:Default:offChild}
+lebed_child_check_pass:
+    pattern: /child_check_pass
+    defaults: { _controller: LebedVideoBundle:Default:checkPass}

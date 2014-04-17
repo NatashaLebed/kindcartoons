@@ -208,10 +208,10 @@ class User extends BaseUser
     /**
      * Set birth_day
      *
-     * @param \dat $birthDay
+     * @param \DateTime $birthDay
      * @return User
      */
-    public function setBirthDay(\data $birthDay)
+    public function setBirthDay(\dateTime $birthDay)
     {
         $this->birth_day = $birthDay;
     
@@ -221,7 +221,7 @@ class User extends BaseUser
     /**
      * Get birth_day
      *
-     * @return \data
+     * @return \DateTime
      */
     public function getBirthDay()
     {

@@ -21,3 +21,7 @@ fos_user_change_password:
     path:     /profile/change-password
     defaults: { _controller: LebedUserBundle:ChangePassword:changePassword }
     methods:  [GET|POST]
+
+fos_user_security_login::
+    pattern: /login
+    defaults: { _controller: LebedUserBundle:Security:login }
