@@ -124,4 +124,6 @@ fos_rest:
         validate: true
     view:
         view_response_listener: force
-#nelmio_api_doc: ~
+    routing_loader:
+        default_format: html
+nelmio_api_doc: ~

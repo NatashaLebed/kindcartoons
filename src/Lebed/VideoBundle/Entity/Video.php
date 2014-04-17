@@ -39,6 +39,7 @@ class Video
 
     /**
      * @ORM\Column(length=64)
+     * @Expose
      */
     protected $author;
 
@@ -73,6 +74,7 @@ class Video
 
     /**
      * @ORM\Column(type="text")
+     * @Expose
      */
     protected $description;
 

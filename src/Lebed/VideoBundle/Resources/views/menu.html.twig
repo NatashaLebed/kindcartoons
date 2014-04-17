@@ -6,6 +6,8 @@
                 {% trans %}Home{% endtrans %}</a>
             <a class="blog-nav-item active" href="{{ path('lebed_video_addVideo') }}">
                 {% trans %}Add Video{% endtrans %}</a>
+            <a class="blog-nav-item active" href="{{ path('nelmio_api_doc_index') }}">
+                {% trans %}ApiDoc{% endtrans %}</a>
 
             <div style="float: right">
                 {% if app.session.get('child') %}
