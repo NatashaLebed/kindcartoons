@@ -1,6 +1,6 @@
 <?php
 
-namespace Lebed\GuestbookBundle\Controller;
+namespace Lebed\VideoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -10,26 +10,26 @@ use FOS\RestBundle\Controller\Annotations\View;
 class ApiController extends FOSRestController
 {
     /**
-     * @ApiDoc(resource=true)
+     * @ApiDoc(resource=true,
+     * output="Lebed\VideoBundle\Entity\Video")
      * @return array
-     * @View(templateVar="posts")
+     * @View(templateVar="videos")
      */
-    public function getPostsAction()
+    public function getVideosAction()
     {
-        $posts = $this->getDoctrine()->getRepository('LebedGuestbookBundle:Post')->findAll();
-        return $posts;
+        $videos = $this->getDoctrine()->getRepository('LebedVideoBundle:Video')->findAll();
+        return $videos;
     }
 
     /**
-     * @ApiDoc(
-     * resource=true,
-     * output="Lebed\GuestbookBundle\Entity\Post")
+     * @ApiDoc(resource=true,
+     * output="Lebed\VideoBundle\Entity\Video")
      * return mixed
-     * @View(templateVar="post")
+     * @View(templateVar="video")
      */
-    public function getPostAction($slug)
+    public function getVideoAction($id)
     {
-        $post = $this->getDoctrine()->getRepository('LebedGuestbookBundle:Post')->findOneBySlug($slug);
-        return $post;
+        $video = $this->getDoctrine()->getRepository('LebedVideoBundle:Video')->find($id);
+        return $video;
     }
 }

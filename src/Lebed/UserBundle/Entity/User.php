@@ -19,27 +19,27 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(length=64)
+     * @ORM\Column(length=64, nullable=true)
      */
     protected $first_name;
 
     /**
-     * @ORM\Column(length=64)
+     * @ORM\Column(length=64, nullable=true)
      */
     protected $last_name;
 
     /**
-     * @ORM\Column(length=16)
+     * @ORM\Column(length=16, nullable=true)
      */
     protected $gender;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      */
     protected $birth_day;
 
     /**
-     * @ORM\Column(type="time")
+     * @ORM\Column(type="time", nullable=true)
      */
     protected $time_limit;
 

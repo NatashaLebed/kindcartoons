@@ -4,3 +4,6 @@ lebed_video:
 lebed_fos_user:
     resource: "@LebedUserBundle/Resources/config/routing.yml"
     prefix: /
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc

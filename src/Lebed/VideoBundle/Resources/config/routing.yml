@@ -47,3 +47,8 @@ lebed_child_off:
 lebed_child_check_pass:
     pattern: /child_check_pass
     defaults: { _controller: LebedVideoBundle:Default:checkPass}
+
+lebed_video_api:
+    type: rest
+    prefix: /api
+    resource: "@LebedVideoBundle/Controller/ApiController.php"

@@ -1,19 +1,19 @@
-{% for post in posts %}
+{% for video in videos %}
 
     <div class="blog-post" style="margin-bottom: 40px;">
-        <h2>{{ post.Title }}</h2>
-        <p class="blog-post-meta">{{ post.UpdatedAt|date("m/d/Y") }} by <a href="#">{{ post.Author }}</a></p>
+        <h2>{{ video.Title }}</h2>
+        <p class="blog-post-meta">{{ video.UpdatedAt|date("m/d/Y") }} by <a href="#">{{ video.Author }}</a></p>
 
-        <p class="blog-post-meta">
-            Category: <a href="{{ path('lebed_guestbook_viewPostsOfCategory', {'id': post.getCategory().getId }) }}"> {{ post.getCategory().getTitle }}</a>
-        </p>
+        {#<p class="blog-post-meta">#}
+            {#Category: <a href="{{ path('lebed_guestbook_viewPostsOfCategory', {'id': post.getCategory().getId }) }}"> {{ post.getCategory().getTitle }}</a>#}
+        {#</p>#}
 
-        <p class="blog-post-meta">
-            Tags:
-            {% for tag in post.getTags() %}
-                {{ tag.getTitle }}
-            {% endfor %}
-        </p> <p></p>
+        {#<p class="blog-post-meta">#}
+            {#Tags:#}
+            {#{% for tag in post.getTags() %}#}
+                {#{{ tag.getTitle }}#}
+            {#{% endfor %}#}
+        {#</p> <p></p>#}
     </div><!--/span-->
 
 {% endfor %}
