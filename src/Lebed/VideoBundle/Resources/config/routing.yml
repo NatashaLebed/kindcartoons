@@ -8,7 +8,7 @@ lebed_video_videos_of_category:
 
 lebed_video_addVideo:
     pattern: /addVideo
-    defaults: { _controller: LebedVideoBundle:Default:addVideo}
+    defaults: { _controller: LebedVideoBundle:AddVideo:addVideo}
 
 lebed_video_copyVideoToUser:
     pattern: /copyVideo/{user_id}/{video_id}
