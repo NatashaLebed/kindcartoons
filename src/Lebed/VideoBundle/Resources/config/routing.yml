@@ -1,10 +1,26 @@
 lebed_video_homepage:
     pattern:  /
-    defaults: { _controller: LebedVideoBundle:Default:index }
+    defaults: { _controller: LebedVideoBundle:Show:index }
+
+lebed_video_showVideoPage:
+    pattern: /video/{slug}
+    defaults: { _controller: LebedVideoBundle:Show:showVideoPage }
 
 lebed_video_videos_of_category:
     pattern: /category/{id}
-    defaults: { _controller: LebedVideoBundle:Default:videosOfCategory}
+    defaults: { _controller: LebedVideoBundle:Show:videosOfCategory}
+
+lebed_video_country:
+    pattern: /country/{id}
+    defaults: { _controller: LebedVideoBundle:Show:videosOfCountry}
+
+lebed_video_language:
+    pattern: /language/{id}
+    defaults: { _controller: LebedVideoBundle:Show:videosOnLanguage}
+
+lebed_video_type:
+    pattern: /type/{id}
+    defaults: { _controller: LebedVideoBundle:Show:videosOfType}
 
 lebed_video_addVideo:
     pattern: /addVideo
@@ -12,41 +28,25 @@ lebed_video_addVideo:
 
 lebed_video_copyVideoToUser:
     pattern: /copyVideo/{user_id}/{video_id}
-    defaults: { _controller: LebedVideoBundle:Default:copyVideoToUser}
+    defaults: { _controller: LebedVideoBundle:CopyVideoToUser:copy}
 
 lebed_video_removeVideoFromUser:
     pattern: /removeVideo/{user_id}/{video_id}
-    defaults: { _controller: LebedVideoBundle:Default:removeVideoFromUser}
-
-lebed_video_showVideoPage:
-    pattern: /video/{slug}
-    defaults: { _controller: LebedVideoBundle:Default:showVideoPage }
+    defaults: { _controller: LebedVideoBundle:RemoveVideoFromUser:remove}
 
 lebed_video_voteVideo:
     pattern: /voteVideo
     defaults: { _controller: LebedVideoBundle:VoteVideo:voteVideo}
 
-lebed_video_country:
-    pattern: /country/{id}
-    defaults: { _controller: LebedVideoBundle:Default:videosOfCountry}
-
-lebed_video_language:
-    pattern: /language/{id}
-    defaults: { _controller: LebedVideoBundle:Default:videosOnLanguage}
-
-lebed_video_type:
-    pattern: /type/{id}
-    defaults: { _controller: LebedVideoBundle:Default:videosOfType}
-
 lebed_child:
     pattern: /child
-    defaults: { _controller: LebedVideoBundle:Default:child}
+    defaults: { _controller: LebedVideoBundle:Childmode:child}
 lebed_child_off:
     pattern: /child_off
-    defaults: { _controller: LebedVideoBundle:Default:offChild}
+    defaults: { _controller: LebedVideoBundle:Childmode:offChild}
 lebed_child_check_pass:
     pattern: /child_check_pass
-    defaults: { _controller: LebedVideoBundle:Default:checkPass}
+    defaults: { _controller: LebedVideoBundle:Childmode:checkPass}
 
 lebed_video_api:
     type: rest
