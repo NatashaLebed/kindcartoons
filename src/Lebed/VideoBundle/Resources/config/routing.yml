@@ -24,7 +24,7 @@ lebed_video_showVideoPage:
 
 lebed_video_voteVideo:
     pattern: /voteVideo
-    defaults: { _controller: LebedVideoBundle:Default:voteVideo}
+    defaults: { _controller: LebedVideoBundle:VoteVideo:voteVideo}
 
 lebed_video_country:
     pattern: /country/{id}
