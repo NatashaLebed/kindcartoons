@@ -12,5 +12,43 @@ use Doctrine\ORM\EntityRepository;
  */
 class VideoRepository extends EntityRepository
 {
+    public function findByCountryUserVideo($country, $video_ids)
+    {
+        $result = $this->createQueryBuilder('v')
+            ->Where('v.country = :country')->setParameter('country', $country->getId())
+            ->andWhere('v.id  IN ('.implode(", ", $video_ids).')')
+            ->getQuery()->execute();
 
+        return $result;
+    }
+
+    public function findByLanguageUserVideo($language, $video_ids)
+    {
+        $result = $this->createQueryBuilder('v')
+            ->Where('v.language = :language')->setParameter('language', $language->getId())
+            ->andWhere('v.id  IN ('.implode(", ", $video_ids).')')
+            ->getQuery()->execute();
+
+        return $result;
+    }
+
+    public function findByTypeUserVideo($type, $video_ids)
+    {
+        $result = $this->createQueryBuilder('v')
+            ->Where('v.type = :type')->setParameter('type', $type->getId())
+            ->andWhere('v.id  IN ('.implode(", ", $video_ids).')')
+            ->getQuery()->execute();
+
+        return $result;
+    }
+
+    public function findByCategoryUserVideo($category_ids, $video_ids)
+    {
+        $result = $this->createQueryBuilder('v')
+            ->Where('v.category IN ('.implode(", ", $category_ids).')')
+            ->andWhere('v.id  IN ('.implode(", ", $video_ids).')')
+            ->getQuery()->execute();
+
+        return $result;
+    }
 }

@@ -227,4 +227,15 @@ class User extends BaseUser
     {
         return $this->birth_day;
     }
+
+    public function getVideoIds(){
+
+        $arr = array();
+
+        foreach($this->getVideos() as $video){
+            $arr[] = $video->getId();
+        }
+
+        return $arr;
+    }
 }

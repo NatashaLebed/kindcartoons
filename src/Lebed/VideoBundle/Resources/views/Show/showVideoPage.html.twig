@@ -1,7 +1,7 @@
 {% extends "LebedVideoBundle::layout.html.twig" %}
 
     {% block content %}
-        {{ video.Title }}
+        {{ video.Title }}</br>
         {{ video.Link | raw}} </br>
         <div id="star_{{ video.Id() }}" class="star" data-video_id="{{ video.Id() }}" data-readonly="{% if app.user %}{{video.isVoting(app.user)}}{% else %}{{'true'}}{% endif %}" data-star="{{ video.getVideoRating() }}"></div>
         <span>Описание {{ video.Description }}</br></span>
@@ -10,18 +10,13 @@
             <p><a class="btn btn-info" {% if app.user.videoIsAdded(video.Id()) %}disabled="disabled"{% endif %} href="{{ path('lebed_video_copyVideoToUser', {'user_id': app.user.id, 'video_id': video.Id}) }}" role="button">Add video + </a></p>
         {% endif %}
 
-
-
     {% endblock %}
 
 {% block jsAfterBody %}
+
     {{ parent() }}
 
     <script src="/bundles/lebedvideo/js/rating/jquery.raty.min.js" type="text/javascript"></script>
-
-    {#<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>#}
-    {#<script src="/bundles/lebedvideo/js/rating/jquery.raty.min.js" type="text/javascript"></script>#}
-
 
     <script type="text/javascript">
 
@@ -59,8 +54,7 @@
                     dataType:"JSON"
                 });
             }
-
-
         });
     </script>
+
 {% endblock %}

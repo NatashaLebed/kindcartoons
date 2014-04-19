@@ -52,3 +52,10 @@ lebed_video_api:
     type: rest
     prefix: /api
     resource: "@LebedVideoBundle/Controller/ApiController.php"
+
+lebed_show_user_menu:
+    pattern: /show_user_menu
+    defaults: { _controller: LebedVideoBundle:Default:showUserMenu}
+lebed_hide_user_menu:
+    pattern: /hide_user_menu
+    defaults: { _controller: LebedVideoBundle:Default:hideUserMenu}

@@ -13,6 +13,7 @@ class ChildmodeController extends Controller
         if ($this->getRequest()->isXmlHttpRequest())
         {
             $this->get('session')->set('child', true);
+            $this->get('session')->set('user_menu', 'true');
 
             $time = date_timestamp_get($this->getUser()->getTimeLimit());
 
