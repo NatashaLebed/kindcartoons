@@ -5,5 +5,5 @@ Feature: My first feature
 
   @javascript
   Scenario: Successfully describing scenario
-    Given I am on "/category/20"
-    Then I should see "Барбоскины"
+    Given I am on "/category/62"
+    Then I should see "Фиксики"

@@ -9,14 +9,13 @@
             <a href="{{ path('fos_user_registration_register') }}">Register</a>
         {% endif %}
 
-        {% if app.session.get('user_menu') %}
-            <p><a class="btn btn-info" href="{{ path('lebed_hide_user_menu') }}" role="button">Show site menu</a></p>
-        {% else %}
-            <p><a class="btn btn-info" href="{{ path('lebed_show_user_menu') }}" role="button">Show user menu</a></p>
-        {% endif %}
-
     </div>
     <div class="sidebar-module">
+        {% if app.session.get('user_menu') %}
+            <p><a class="btn btn-success" href="{{ path('lebed_hide_user_menu') }}" role="button">Show site menu</a></p>
+        {% else %}
+            <p><a class="btn btn-success" href="{{ path('lebed_show_user_menu') }}" role="button">Show user menu</a></p>
+        {% endif %}
         <h4>Categories</h4>
         {{ render(controller('LebedVideoBundle:BuildTreeMenu:categoryTree')) }}
         {{ render(controller('LebedVideoBundle:BuildTreeMenu:rightMenu')) }}
